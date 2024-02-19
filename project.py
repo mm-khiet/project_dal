@@ -1,9 +1,17 @@
 #!/bin/python
 
-from data_understanding import data_understanding
+from data_understanding.data_understanding import *
+from misc.utilities import acquire_dataset
+
+import pandas as pd
+
+
+# Download & load the dataset
+df = acquire_dataset()
+
 
 # CRISP-DM Step 2 - Data Understanding Phase
-
+crisp_dm_phase_2_data_understanding(df)
 
 
 
