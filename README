@@ -1,2 +1,9 @@
-This is README.
-README carefully!
+Description:
+
+
+Setup:
+1. Python3.11 is required.
+2. Insall the packages in requirements.txt
+
+conda create -y -n py27 python=2.7 spyder=3.3.6
+
