@@ -11,13 +11,13 @@ def read_csv_data(filepath):
             {
                 "latitude": float(row["LATITUDE"]),
                 "longitude": float(row["LONGITUDE"]),
-                "deaths": int(row["deaths"])  # Assuming the column for deaths is lowercase. Adjust if needed.
+                "deaths": int(row["INJURIES_FATAL"])
             } for row in csv_reader
         ]
     return data
 
 # Replace 'grouped_points_summary2.csv' with your actual CSV file path if it's located in a different directory
-DATA = read_csv_data('../grouped_points_summary2.csv')
+DATA = read_csv_data('fatal_clustering.csv')
 
 @app.route("/")
 def index():

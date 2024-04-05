@@ -11,13 +11,12 @@ def read_csv_data(filepath):
             {
                 "latitude": float(row["LATITUDE"]),
                 "longitude": float(row["LONGITUDE"]),
-                "deaths": int(row["deaths"])  # Assuming the column for deaths is lowercase. Adjust if needed.
+                "injured": int(row["INJURIES_INCAPACITATING"])
             } for row in csv_reader
         ]
     return data
 
-# Replace 'grouped_points_summary2.csv' with your actual CSV file path if it's located in a different directory
-DATA = read_csv_data('../grouped_points_summary2.csv')
+DATA = read_csv_data('injured_clustering.csv')
 
 @app.route("/")
 def index():
@@ -40,11 +39,11 @@ def index():
 
             // Add a marker for each location
             locations.forEach(location => {
-                const markerSize = Math.max(location.deaths, 1); // Ensure size is at least 1
+                const markerSize = Math.max(location.injured, 1); // Ensure size is at least 1
                 new google.maps.Marker({
                     position: {lat: location.latitude, lng: location.longitude},
                     map: map,
-                    // Use a scaled size to make the marker larger for more deaths
+                    // Use a scaled size to make the marker larger for more injured
                     icon: {
                         path: google.maps.SymbolPath.CIRCLE,
                         scale: markerSize, // Adjust this scaling factor as needed
